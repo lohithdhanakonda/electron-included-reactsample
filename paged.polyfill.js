@@ -26076,6 +26076,8 @@ img {
 		max-height: 100%;
 		min-height: 100%;
 		height: 100% !important;
+		page-break-after: always;
+		break-after: page;
 	}
 	.pagedjs_sheet {
 		margin: 0;
@@ -26083,6 +26085,18 @@ img {
 		max-height: 100%;
 		min-height: 100%;
 		height: 100% !important;
+	}
+	table{
+		page-break-inside: avoid!important;
+		break-inside: avoid!important;
+	}
+	tr{
+		page-break-inside: avoid!important;
+		break-inside: avoid!important;
+	}
+	td{
+		page-break-inside: avoid!important;
+		break-inside: avoid!important;
 	}
 }
 `;
