@@ -26095,10 +26095,15 @@ img {
 		min-height: 100%;
 		height: 100% !important;
 	}
-	table{
-		page-break-inside: avoid!important;
-		break-inside: avoid!important;
-	}
+table{
+	margin-top: 0!important;
+padding-top:0!important;
+
+page-break-before: avoid!important;
+break-before: avoid!important;
+page-break-after: avoid!important;
+break-after:avoid!important;
+}
 	tr{
 		page-break-inside: avoid!important;
 		break-inside: avoid!important;
