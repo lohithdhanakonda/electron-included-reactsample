@@ -786,7 +786,7 @@
 				 node.dataset.breakBefore === "right" ||
 				 node.dataset.breakBefore === "recto" ||
 				 node.dataset.breakBefore === "verso"||
-				 (node.className=='hsi-row'))
+				 (node.className=='hsi-row'||node.class=='hsi-row'))
 			 ) {
 			return true;
 		}
@@ -803,7 +803,8 @@
 				 node.dataset.previousBreakAfter === "left" ||
 				 node.dataset.previousBreakAfter === "right" ||
 				 node.dataset.previousBreakAfter === "recto" ||
-				 node.dataset.previousBreakAfter === "verso")
+				 node.dataset.previousBreakAfter === "verso"||
+				 (node.className=='hsi-row'||node.class=='hsi-row'))
 			 ) {
 			return true;
 		}
