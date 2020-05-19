@@ -26103,7 +26103,7 @@ page-break-before: avoid!important;
 break-before: avoid!important;
 page-break-after: avoid!important;
 break-after:avoid!important;
-
+padding-bottom: 20px;
 }
 	tr{
 		page-break-inside: avoid!important;
