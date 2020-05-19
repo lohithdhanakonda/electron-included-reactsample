@@ -26103,6 +26103,8 @@ page-break-before: avoid!important;
 break-before: avoid!important;
 page-break-after: avoid!important;
 break-after:avoid!important;
+page-break-inside: avoid!important;
+break-inside: avoid!important;
 }
 	tr{
 		page-break-inside: avoid!important;
