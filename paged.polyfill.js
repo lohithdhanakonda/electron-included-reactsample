@@ -26104,9 +26104,12 @@ break-before: avoid!important;
 page-break-after: avoid!important;
 break-after:avoid!important;
 padding-bottom: 20px;
+page-break-inside:auto
 }
+    thead { display:table-header-group }
 	tr{
 		page-break-inside: avoid!important;
+		page-break-after:auto; 
 		break-inside: avoid!important;
 	}
 	td{
