@@ -1405,13 +1405,13 @@
 			console.log(rendered.getElementsByTagName('table'))
 			if (rendered.getElementsByTagName('table').length) {
 				// let nodeposition = getBoundingClientRect(rendered)
+				console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop,'offsetTop')
 				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800)
 					{
-						console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-						// let range = document.createRange();
-						// range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1], offset);
-						// return range;
-						return;
+						// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
+						let range = document.createRange();
+						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1], offset);
+						return range;
 					}
 				debugger
 			}
