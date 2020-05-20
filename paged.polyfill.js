@@ -777,7 +777,7 @@
 	*/
 
 	function needsBreakBefore(node) {
-		if( typeof node !== "undefined" &&
+		if( (typeof node !== "undefined" &&
 				typeof node.dataset !== "undefined" &&
 				typeof node.dataset.breakBefore !== "undefined" &&
 				(node.dataset.breakBefore === "always" ||
@@ -785,10 +785,13 @@
 				 node.dataset.breakBefore === "left" ||
 				 node.dataset.breakBefore === "right" ||
 				 node.dataset.breakBefore === "recto" ||
-				 node.dataset.breakBefore === "verso"||
-				 (node.className=='hsi-row'||node.class=='hsi-row'))
+				 node.dataset.breakBefore === "verso"))
 			 ) {
 			return true;
+		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
+			debugger
+			console.log(node)
+			return true
 		}
 
 		return false;
@@ -803,10 +806,13 @@
 				 node.dataset.previousBreakAfter === "left" ||
 				 node.dataset.previousBreakAfter === "right" ||
 				 node.dataset.previousBreakAfter === "recto" ||
-				 node.dataset.previousBreakAfter === "verso"||
-				 (node.className=='hsi-row'||node.class=='hsi-row'))
+				 node.dataset.previousBreakAfter === "verso")
 			 ) {
 			return true;
+		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
+			debugger
+			console.log(node)
+			return true
 		}
 
 		return false;
@@ -818,6 +824,10 @@
 				(node.dataset.page || node.dataset.afterPage)
 			 ) {
 			return true;
+		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
+			debugger
+			console.log(node)
+			return true
 		}
 
 		return false;
