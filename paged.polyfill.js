@@ -1166,7 +1166,6 @@
 		}
 
 		shouldBreak(node) {
-			console.log(node.off)
 			let previousSibling = node.previousSibling;
 			let parentNode = node.parentNode;
 			let parentBreakBefore = needsBreakBefore(node) && parentNode && !previousSibling && needsBreakBefore(parentNode);
@@ -1403,7 +1402,8 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			if ((rendered.tagName.toLowerCase() == 'tr'))
+			console.log(rendered.tagName)
+			if ((rendered.tagName.toLowerCase() == 'table'))
 				{
 					let nodeposition = getBoundingClientRect(rendered)
 					debugger
