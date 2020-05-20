@@ -1404,7 +1404,15 @@
 		findOverflow(rendered, bounds = this.bounds) {
 			console.log(rendered.getElementsByTagName('table'))
 			if (rendered.getElementsByTagName('table').length) {
-				let nodeposition = getBoundingClientRect(rendered)
+				// let nodeposition = getBoundingClientRect(rendered)
+				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800)
+					{
+						console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
+						// let range = document.createRange();
+						// range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1], offset);
+						// return range;
+						return;
+					}
 				debugger
 			}
 			if (!this.hasOverflow(rendered, bounds)) return;
