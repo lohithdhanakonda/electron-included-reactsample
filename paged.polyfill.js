@@ -1405,15 +1405,14 @@
 			console.log(rendered.getElementsByTagName('table'))
 			if (rendered.getElementsByTagName('table').length) {
 				// let nodeposition = getBoundingClientRect(rendered)
-				console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop,'offsetTop')
-				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800)
-					{
-						// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-						let range = document.createRange();
-						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1]
+				console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop, 'offsetTop')
+				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800) {
+					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
+					let range = document.createRange();
+					range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].firstChild
 						, rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop);
-						return range;
-					}
+					return range;
+				}
 				debugger
 			}
 			if (!this.hasOverflow(rendered, bounds)) return;
