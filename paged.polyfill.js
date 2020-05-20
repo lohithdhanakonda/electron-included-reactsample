@@ -1410,7 +1410,7 @@
 				console.log(offsettop, 'offsetTop')
 				if (offsettop >= 800) {
 					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-					if (element) {
+					if (element && element.childElementCount) {
 						let range = document.createRange();
 						range.setStart(element, offsettop);
 						return range;
