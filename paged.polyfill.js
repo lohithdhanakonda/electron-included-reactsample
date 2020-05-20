@@ -788,7 +788,7 @@
 				 node.dataset.breakBefore === "verso"))
 			 ) {
 			return true;
-		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
+		}else if((node.className=='hsi-row')){
 			return false
 		}
 
@@ -807,7 +807,7 @@
 				 node.dataset.previousBreakAfter === "verso")
 			 ) {
 			return true;
-		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
+		}else if((node.className=='hsi-row')){
 			return false
 		}
 
@@ -820,7 +820,7 @@
 				(node.dataset.page || node.dataset.afterPage)
 			 ) {
 			return true;
-		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
+		}else if((node.className=='hsi-row')){
 			return false
 		}
 
@@ -1165,6 +1165,7 @@
 		}
 
 		shouldBreak(node) {
+			console.log(node.off)
 			let previousSibling = node.previousSibling;
 			let parentNode = node.parentNode;
 			let parentBreakBefore = needsBreakBefore(node) && parentNode && !previousSibling && needsBreakBefore(parentNode);
