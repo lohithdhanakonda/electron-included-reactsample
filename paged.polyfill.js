@@ -1402,8 +1402,9 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			console.log(rendered.tagName)
-			if ((rendered.tagName.toLowerCase() == 'table'))
+			console.log(rendered.contains($('table.hsi-table')))
+			console.log(rendered.getElementsByTagName('table'))
+			if (rendered.contains($('table.hsi-table')))
 				{
 					let nodeposition = getBoundingClientRect(rendered)
 					debugger
