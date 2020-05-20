@@ -1402,16 +1402,17 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			console.log(rendered.getElementsByTagName('table'))
-			if (rendered.getElementsByTagName('table').length) {
+			console.log(rendered.getElementsByClassName('patients-table'))
+			if (rendered.getElementsByClassName('patients-table').length) {
 				// let nodeposition = getBoundingClientRect(rendered)
-				console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop, 'offsetTop')
-				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800) {
+				let element = rendered.getElementsByClassName('patients-table')[rendered.getElementsByClassName('patients-table').length - 1]
+				let offsettop = element.offsetTop
+				console.log(offsettop, 'offsetTop')
+				if (offsettop >= 800) {
 					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-					if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1]) {
+					if (element) {
 						let range = document.createRange();
-						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].parentElement
-							, rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].parentElement.offsetTop);
+						range.setStart(element, offsettop);
 						return range;
 					}
 				}
