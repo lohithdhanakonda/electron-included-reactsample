@@ -1408,9 +1408,9 @@
 				console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop, 'offsetTop')
 				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800) {
 					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-					if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].firstChild) {
+					if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1]) {
 						let range = document.createRange();
-						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].firstChild
+						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].parentElement
 							, rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop);
 						return range;
 					}
