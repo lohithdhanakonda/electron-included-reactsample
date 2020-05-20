@@ -1408,12 +1408,13 @@
 				console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop, 'offsetTop')
 				if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop >= 800) {
 					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-					let range = document.createRange();
-					range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].firstChild
-						, rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop);
-					return range;
+					if (rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].firstChild) {
+						let range = document.createRange();
+						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].firstChild
+							, rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop);
+						return range;
+					}
 				}
-				debugger
 			}
 			if (!this.hasOverflow(rendered, bounds)) return;
 			let start = Math.round(bounds.left);
