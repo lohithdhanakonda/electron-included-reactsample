@@ -1410,7 +1410,8 @@
 					{
 						// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
 						let range = document.createRange();
-						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1], offset);
+						range.setStart(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1]
+						, rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length - 1].offsetTop);
 						return range;
 					}
 				debugger
