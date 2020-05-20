@@ -1403,7 +1403,7 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			if ((rendered.tagName.toLowerCase() == 'tr' && rendered.className == 'hsi-row'))
+			if ((rendered.tagName.toLowerCase() == 'tr'))
 				{
 					let nodeposition = getBoundingClientRect(rendered)
 					debugger
