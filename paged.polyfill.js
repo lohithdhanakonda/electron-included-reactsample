@@ -1403,12 +1403,12 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			if (!this.hasOverflow(rendered, bounds)) return;
 			if ((rendered.tagName.toLowerCase() == 'tr' && rendered.className == 'hsi-row'))
 				{
 					let nodeposition = getBoundingClientRect(rendered)
 					debugger
 				}
+			if (!this.hasOverflow(rendered, bounds)) return;
 			let start = Math.round(bounds.left);
 			let end = Math.round(bounds.right);
 			let range;
