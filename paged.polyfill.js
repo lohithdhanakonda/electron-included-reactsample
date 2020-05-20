@@ -789,9 +789,7 @@
 			 ) {
 			return true;
 		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
-			debugger
-			console.log(node)
-			return true
+			return false
 		}
 
 		return false;
@@ -810,9 +808,7 @@
 			 ) {
 			return true;
 		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
-			debugger
-			console.log(node)
-			return true
+			return false
 		}
 
 		return false;
@@ -825,9 +821,7 @@
 			 ) {
 			return true;
 		}else if((node.className=='hsi-row'||node.class=='hsi-row')){
-			debugger
-			console.log(node)
-			return true
+			return false
 		}
 
 		return false;
