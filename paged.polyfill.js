@@ -1402,13 +1402,11 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			console.log(rendered.contains($('table.hsi-table')))
 			console.log(rendered.getElementsByTagName('table'))
-			if (rendered.contains($('table.hsi-table')))
-				{
-					let nodeposition = getBoundingClientRect(rendered)
-					debugger
-				}
+			if (rendered.getElementsByTagName('table').length) {
+				let nodeposition = getBoundingClientRect(rendered)
+				debugger
+			}
 			if (!this.hasOverflow(rendered, bounds)) return;
 			let start = Math.round(bounds.left);
 			let end = Math.round(bounds.right);
