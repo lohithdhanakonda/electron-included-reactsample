@@ -2527,7 +2527,8 @@
 				breakBefore !== currentSide) {
 				page = this.addPage(true);
 			}
-			if (node && node.getElementsByClassName('patients-table').length) {
+			console.log(node.nodeName,'nodeName')
+			if (node && node.nodeName.indexOf('#') == -1 && node.getElementsByClassName('patients-table').length) {
 				// let nodeposition = getBoundingClientRect(rendered)
 				let element = node.getElementsByClassName('patients-table')[node.getElementsByClassName('patients-table').length - 1]
 				let offsettop = element.offsetTop
