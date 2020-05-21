@@ -1761,35 +1761,35 @@
 		}
 		*/
 
-		async layout(contents, breakToken, maxChars) {
+		// async layout(contents, breakToken, maxChars) {
 
-			this.clear();
+		// 	this.clear();
 
-			this.startToken = breakToken;
+		// 	this.startToken = breakToken;
 
-			this.layoutMethod = new Layout(this.area, this.hooks, maxChars);
+		// 	this.layoutMethod = new Layout(this.area, this.hooks, maxChars);
 
-			let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
+		// 	let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
 
-			this.addListeners(contents);
+		// 	this.addListeners(contents);
 
-			this.endToken = newBreakToken;
+		// 	this.endToken = newBreakToken;
 
-			return newBreakToken;
-		}
+		// 	return newBreakToken;
+		// }
 
-		async append(contents, breakToken) {
+		// async append(contents, breakToken) {
 
-			if (!this.layoutMethod) {
-				return this.layout(contents, breakToken);
-			}
+		// 	if (!this.layoutMethod) {
+		// 		return this.layout(contents, breakToken);
+		// 	}
 
-			let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
+		// 	let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
 
-			this.endToken = newBreakToken;
+		// 	this.endToken = newBreakToken;
 
-			return newBreakToken;
-		}
+		// 	return newBreakToken;
+		// }
 
 		getByParent(ref, entries) {
 			let e;
