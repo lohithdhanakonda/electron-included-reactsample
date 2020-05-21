@@ -1078,7 +1078,21 @@
 			let newBreakToken;
 
 			let length = 0;
-
+			console.log(wrapper.getElementsByClassName('patients-table'))
+			if (wrapper.getElementsByClassName('patients-table').length) {
+				// let nodeposition = getBoundingClientRect(rendered)
+				let element = wrapper.getElementsByClassName('patients-table')[wrapper.getElementsByClassName('patients-table').length - 1]
+				let offsettop = element.offsetTop
+				console.log(element, 'offsetTop')
+				console.log(offsettop, 'offsetTop')
+				if (offsettop >= 800) {
+					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
+					if (element && element.childElementCount) {
+						
+						this.breakAt(element,offsettop)
+					}
+				}
+			}
 			while (!done && !newBreakToken) {
 				next = walker.next();
 				node = next.value;
@@ -1402,23 +1416,7 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-			console.log(rendered.getElementsByClassName('patients-table'))
-			if (rendered.getElementsByClassName('patients-table').length) {
-				// let nodeposition = getBoundingClientRect(rendered)
-				let element = rendered.getElementsByClassName('patients-table')[rendered.getElementsByClassName('patients-table').length - 1]
-				let offsettop = element.offsetTop
-				console.log(offsettop, 'offsetTop')
-				if (offsettop >= 800) {
-					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-					if (element && element.childElementCount && element.children[element.children.length - 1].childElementCount) {
-						let range = document.createRange();
-						range.startContainer = element
-						range.startOffset = offsettop
-						// range.setStart(element, offsettop);
-						return range;
-					}
-				}
-			}
+		
 			if (!this.hasOverflow(rendered, bounds)) return;
 			let start = Math.round(bounds.left);
 			let end = Math.round(bounds.right);
