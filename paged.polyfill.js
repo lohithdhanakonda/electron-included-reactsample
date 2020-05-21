@@ -1402,7 +1402,7 @@
 		}
 
 		findOverflow(rendered, bounds = this.bounds) {
-		
+
 			if (!this.hasOverflow(rendered, bounds)) return;
 			let start = Math.round(bounds.left);
 			let end = Math.round(bounds.right);
@@ -2527,8 +2527,7 @@
 				breakBefore !== currentSide) {
 				page = this.addPage(true);
 			}
-			console.log(node.getElementsByClassName('patients-table'))
-			if (node.getElementsByClassName('patients-table').length) {
+			if (node && node.getElementsByClassName('patients-table').length) {
 				// let nodeposition = getBoundingClientRect(rendered)
 				let element = node.getElementsByClassName('patients-table')[node.getElementsByClassName('patients-table').length - 1]
 				let offsettop = element.offsetTop
@@ -2536,7 +2535,7 @@
 				if (offsettop >= 800) {
 					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
 					if (element && element.childElementCount && element.children[element.children.length - 1].childElementCount) {
-						
+
 						// range.setStart(element, offsettop);
 						page = this.addPage(true);
 					}
