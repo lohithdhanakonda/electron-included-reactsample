@@ -1066,97 +1066,97 @@
 			this.maxChars = this.settings.maxChars || MAX_CHARS_PER_BREAK;
 		}
 
-		async renderTo(wrapper, source, breakToken, bounds = this.bounds) {
-			let start = this.getStart(source, breakToken);
-			let walker = walk(start, source);
+		// async renderTo(wrapper, source, breakToken, bounds = this.bounds) {
+		// 	let start = this.getStart(source, breakToken);
+		// 	let walker = walk(start, source);
 
-			let node;
-			let done;
-			let next;
+		// 	let node;
+		// 	let done;
+		// 	let next;
 
-			let hasRenderedContent = false;
-			let newBreakToken;
+		// 	let hasRenderedContent = false;
+		// 	let newBreakToken;
 
-			let length = 0;
+		// 	let length = 0;
 		
-			while (!done && !newBreakToken) {
-				next = walker.next();
-				node = next.value;
-				done = next.done;
+		// 	while (!done && !newBreakToken) {
+		// 		next = walker.next();
+		// 		node = next.value;
+		// 		done = next.done;
 
-				if (!node) {
-					this.hooks && this.hooks.layout.trigger(wrapper, this);
+		// 		if (!node) {
+		// 			this.hooks && this.hooks.layout.trigger(wrapper, this);
 
-					let imgs = wrapper.querySelectorAll("img");
-					if (imgs.length) {
-						await this.waitForImages(imgs);
-					}
+		// 			let imgs = wrapper.querySelectorAll("img");
+		// 			if (imgs.length) {
+		// 				await this.waitForImages(imgs);
+		// 			}
 
-					newBreakToken = this.findBreakToken(wrapper, source, bounds);
-					return newBreakToken;
-				}
+		// 			newBreakToken = this.findBreakToken(wrapper, source, bounds);
+		// 			return newBreakToken;
+		// 		}
 
-				this.hooks && this.hooks.layoutNode.trigger(node);
+		// 		this.hooks && this.hooks.layoutNode.trigger(node);
 
-				// Check if the rendered element has a break set
-				if (hasRenderedContent && this.shouldBreak(node)) {
+		// 		// Check if the rendered element has a break set
+		// 		if (hasRenderedContent && this.shouldBreak(node)) {
 
-					this.hooks && this.hooks.layout.trigger(wrapper, this);
+		// 			this.hooks && this.hooks.layout.trigger(wrapper, this);
 
-					let imgs = wrapper.querySelectorAll("img");
-					if (imgs.length) {
-						await this.waitForImages(imgs);
-					}
+		// 			let imgs = wrapper.querySelectorAll("img");
+		// 			if (imgs.length) {
+		// 				await this.waitForImages(imgs);
+		// 			}
 
-					newBreakToken = this.findBreakToken(wrapper, source, bounds);
+		// 			newBreakToken = this.findBreakToken(wrapper, source, bounds);
 
-					if (!newBreakToken) {
-						newBreakToken = this.breakAt(node);
-					}
+		// 			if (!newBreakToken) {
+		// 				newBreakToken = this.breakAt(node);
+		// 			}
 
-					length = 0;
+		// 			length = 0;
 
-					break;
-				}
+		// 			break;
+		// 		}
 
-				// Should the Node be a shallow or deep clone
-				let shallow = isContainer(node);
+		// 		// Should the Node be a shallow or deep clone
+		// 		let shallow = isContainer(node);
 
-				let rendered = this.append(node, wrapper, breakToken, shallow);
+		// 		let rendered = this.append(node, wrapper, breakToken, shallow);
 
-				length += rendered.textContent.length;
+		// 		length += rendered.textContent.length;
 
-				// Check if layout has content yet
-				if (!hasRenderedContent) {
-					hasRenderedContent = hasContent(node);
-				}
+		// 		// Check if layout has content yet
+		// 		if (!hasRenderedContent) {
+		// 			hasRenderedContent = hasContent(node);
+		// 		}
 
-				// Skip to the next node if a deep clone was rendered
-				if (!shallow) {
-					walker = walk(nodeAfter(node, source), source);
-				}
+		// 		// Skip to the next node if a deep clone was rendered
+		// 		if (!shallow) {
+		// 			walker = walk(nodeAfter(node, source), source);
+		// 		}
 
-				// Only check x characters
-				if (length >= this.maxChars) {
+		// 		// Only check x characters
+		// 		if (length >= this.maxChars) {
 
-					this.hooks && this.hooks.layout.trigger(wrapper, this);
+		// 			this.hooks && this.hooks.layout.trigger(wrapper, this);
 
-					let imgs = wrapper.querySelectorAll("img");
-					if (imgs.length) {
-						await this.waitForImages(imgs);
-					}
+		// 			let imgs = wrapper.querySelectorAll("img");
+		// 			if (imgs.length) {
+		// 				await this.waitForImages(imgs);
+		// 			}
 
-					newBreakToken = this.findBreakToken(wrapper, source, bounds);
+		// 			newBreakToken = this.findBreakToken(wrapper, source, bounds);
 
-					if (newBreakToken) {
-						length = 0;
-					}
-				}
+		// 			if (newBreakToken) {
+		// 				length = 0;
+		// 			}
+		// 		}
 
-			}
+		// 	}
 
-			return newBreakToken;
-		}
+		// 	return newBreakToken;
+		// }
 
 		breakAt(node, offset = 0) {
 			return {
