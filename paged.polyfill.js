@@ -1066,97 +1066,97 @@
 			this.maxChars = this.settings.maxChars || MAX_CHARS_PER_BREAK;
 		}
 
-		// async renderTo(wrapper, source, breakToken, bounds = this.bounds) {
-		// 	let start = this.getStart(source, breakToken);
-		// 	let walker = walk(start, source);
+		async renderTo(wrapper, source, breakToken, bounds = this.bounds) {
+			let start = this.getStart(source, breakToken);
+			let walker = walk(start, source);
 
-		// 	let node;
-		// 	let done;
-		// 	let next;
+			let node;
+			let done;
+			let next;
 
-		// 	let hasRenderedContent = false;
-		// 	let newBreakToken;
+			let hasRenderedContent = false;
+			let newBreakToken;
 
-		// 	let length = 0;
-		
-		// 	while (!done && !newBreakToken) {
-		// 		next = walker.next();
-		// 		node = next.value;
-		// 		done = next.done;
+			let length = 0;
 
-		// 		if (!node) {
-		// 			this.hooks && this.hooks.layout.trigger(wrapper, this);
+			while (!done && !newBreakToken) {
+				next = walker.next();
+				node = next.value;
+				done = next.done;
 
-		// 			let imgs = wrapper.querySelectorAll("img");
-		// 			if (imgs.length) {
-		// 				await this.waitForImages(imgs);
-		// 			}
+				if (!node) {
+					this.hooks && this.hooks.layout.trigger(wrapper, this);
 
-		// 			newBreakToken = this.findBreakToken(wrapper, source, bounds);
-		// 			return newBreakToken;
-		// 		}
+					let imgs = wrapper.querySelectorAll("img");
+					if (imgs.length) {
+						await this.waitForImages(imgs);
+					}
 
-		// 		this.hooks && this.hooks.layoutNode.trigger(node);
+					newBreakToken = this.findBreakToken(wrapper, source, bounds);
+					return newBreakToken;
+				}
 
-		// 		// Check if the rendered element has a break set
-		// 		if (hasRenderedContent && this.shouldBreak(node)) {
+				this.hooks && this.hooks.layoutNode.trigger(node);
 
-		// 			this.hooks && this.hooks.layout.trigger(wrapper, this);
+				// Check if the rendered element has a break set
+				if (hasRenderedContent && this.shouldBreak(node)) {
 
-		// 			let imgs = wrapper.querySelectorAll("img");
-		// 			if (imgs.length) {
-		// 				await this.waitForImages(imgs);
-		// 			}
+					this.hooks && this.hooks.layout.trigger(wrapper, this);
 
-		// 			newBreakToken = this.findBreakToken(wrapper, source, bounds);
+					let imgs = wrapper.querySelectorAll("img");
+					if (imgs.length) {
+						await this.waitForImages(imgs);
+					}
 
-		// 			if (!newBreakToken) {
-		// 				newBreakToken = this.breakAt(node);
-		// 			}
+					newBreakToken = this.findBreakToken(wrapper, source, bounds);
 
-		// 			length = 0;
+					if (!newBreakToken) {
+						newBreakToken = this.breakAt(node);
+					}
 
-		// 			break;
-		// 		}
+					length = 0;
 
-		// 		// Should the Node be a shallow or deep clone
-		// 		let shallow = isContainer(node);
+					break;
+				}
 
-		// 		let rendered = this.append(node, wrapper, breakToken, shallow);
+				// Should the Node be a shallow or deep clone
+				let shallow = isContainer(node);
 
-		// 		length += rendered.textContent.length;
+				let rendered = this.append(node, wrapper, breakToken, shallow);
 
-		// 		// Check if layout has content yet
-		// 		if (!hasRenderedContent) {
-		// 			hasRenderedContent = hasContent(node);
-		// 		}
+				length += rendered.textContent.length;
 
-		// 		// Skip to the next node if a deep clone was rendered
-		// 		if (!shallow) {
-		// 			walker = walk(nodeAfter(node, source), source);
-		// 		}
+				// Check if layout has content yet
+				if (!hasRenderedContent) {
+					hasRenderedContent = hasContent(node);
+				}
 
-		// 		// Only check x characters
-		// 		if (length >= this.maxChars) {
+				// Skip to the next node if a deep clone was rendered
+				if (!shallow) {
+					walker = walk(nodeAfter(node, source), source);
+				}
 
-		// 			this.hooks && this.hooks.layout.trigger(wrapper, this);
+				// Only check x characters
+				if (length >= this.maxChars) {
 
-		// 			let imgs = wrapper.querySelectorAll("img");
-		// 			if (imgs.length) {
-		// 				await this.waitForImages(imgs);
-		// 			}
+					this.hooks && this.hooks.layout.trigger(wrapper, this);
 
-		// 			newBreakToken = this.findBreakToken(wrapper, source, bounds);
+					let imgs = wrapper.querySelectorAll("img");
+					if (imgs.length) {
+						await this.waitForImages(imgs);
+					}
 
-		// 			if (newBreakToken) {
-		// 				length = 0;
-		// 			}
-		// 		}
+					newBreakToken = this.findBreakToken(wrapper, source, bounds);
 
-		// 	}
+					if (newBreakToken) {
+						length = 0;
+					}
+				}
 
-		// 	return newBreakToken;
-		// }
+			}
+
+			return newBreakToken;
+		}
 
 		breakAt(node, offset = 0) {
 			return {
@@ -1509,22 +1509,7 @@
 			if (rendered.childNodes.length === 0) {
 				return;
 			}
-			console.log(rendered.getElementsByClassName('patients-table'))
-			if (rendered.getElementsByClassName('patients-table').length) {
-				// let nodeposition = getBoundingClientRect(rendered)
-				let element = rendered.getElementsByClassName('patients-table')[rendered.getElementsByClassName('patients-table').length - 1]
-				let offsettop = element.offsetTop
-				console.log(element, 'offsetTop')
-				console.log(offsettop, 'offsetTop')
-				if (offsettop >= 800) {
-					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
-					if (element && element.childElementCount) {
-						
-						this.breakAt(element,offsettop)
-					}
-				}
-			}
-			
+
 			let lastChild = rendered.lastChild;
 
 			let lastNodeIndex;
@@ -1761,35 +1746,35 @@
 		}
 		*/
 
-		// async layout(contents, breakToken, maxChars) {
+		async layout(contents, breakToken, maxChars) {
 
-		// 	this.clear();
+			this.clear();
 
-		// 	this.startToken = breakToken;
+			this.startToken = breakToken;
 
-		// 	this.layoutMethod = new Layout(this.area, this.hooks, maxChars);
+			this.layoutMethod = new Layout(this.area, this.hooks, maxChars);
 
-		// 	let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
+			let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
 
-		// 	this.addListeners(contents);
+			this.addListeners(contents);
 
-		// 	this.endToken = newBreakToken;
+			this.endToken = newBreakToken;
 
-		// 	return newBreakToken;
-		// }
+			return newBreakToken;
+		}
 
-		// async append(contents, breakToken) {
+		async append(contents, breakToken) {
 
-		// 	if (!this.layoutMethod) {
-		// 		return this.layout(contents, breakToken);
-		// 	}
+			if (!this.layoutMethod) {
+				return this.layout(contents, breakToken);
+			}
 
-		// 	let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
+			let newBreakToken = await this.layoutMethod.renderTo(this.wrapper, contents, breakToken);
 
-		// 	this.endToken = newBreakToken;
+			this.endToken = newBreakToken;
 
-		// 	return newBreakToken;
-		// }
+			return newBreakToken;
+		}
 
 		getByParent(ref, entries) {
 			let e;
@@ -2541,6 +2526,21 @@
 				(breakBefore === "verso" || breakBefore === "recto") &&
 				breakBefore !== currentSide) {
 				page = this.addPage(true);
+			}
+			console.log(node.getElementsByClassName('patients-table'))
+			if (node.getElementsByClassName('patients-table').length) {
+				// let nodeposition = getBoundingClientRect(rendered)
+				let element = node.getElementsByClassName('patients-table')[node.getElementsByClassName('patients-table').length - 1]
+				let offsettop = element.offsetTop
+				console.log(offsettop, 'offsetTop')
+				if (offsettop >= 800) {
+					// console.log(rendered.getElementsByTagName('table')[rendered.getElementsByTagName('table').length-1].getElementsByTagName('tr').length,'rows count')
+					if (element && element.childElementCount && element.children[element.children.length - 1].childElementCount) {
+						
+						// range.setStart(element, offsettop);
+						page = this.addPage(true);
+					}
+				}
 			}
 
 			if (page) {
